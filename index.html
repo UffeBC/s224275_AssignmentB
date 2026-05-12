@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WEB</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>indx_2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7509,84 +7509,75 @@ a.anchor-link {
   }
 </style>
 <!-- End of mermaid configuration -->
-<style id="chatgpt-clean-report-css">
-/* Hide Python code cells, but keep Markdown cells and all outputs/charts visible */
-.jp-CodeCell > .jp-Cell-inputWrapper {
+<style id="custom-report-cleanup">
+/* Hide code cells' input only, while keeping markdown and outputs visible */
+.jp-CodeCell > .jp-Cell-inputWrapper,
+.jp-CodeCell .jp-InputArea,
+.jp-CodeCell .jp-InputPrompt {
     display: none !important;
 }
 
-/* Hide notebook prompts like Out[21] for a cleaner report */
+/* Hide Jupyter output prompts like Out[ ] */
 .jp-OutputPrompt,
-.jp-InputPrompt,
-.jp-Collapser {
+.jp-OutputArea-prompt {
     display: none !important;
 }
 
-/* Let outputs expand instead of becoming scroll boxes */
-.jp-Cell-outputWrapper,
+/* Let outputs expand instead of appearing in internal scroll boxes */
+.jp-CodeCell.jp-mod-outputsScrolled .jp-Cell-outputArea,
+.jp-CodeCell .jp-Cell-outputArea,
 .jp-OutputArea,
-.jp-OutputArea-child,
 .jp-OutputArea-output,
-.jp-RenderedHTMLCommon,
-.jp-RenderedHTML {
-    overflow: visible !important;
+.jp-RenderedHTMLCommon {
     max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    resize: none !important;
 }
 
-/* Make the embedded COFOG chart large enough to avoid its own internal scroller */
-iframe[src*="cofog_drilldown_english.html"] {
-    width: 100% !important;
-    height: 950px !important;
-    min-height: 950px !important;
-    border: none !important;
-    display: block !important;
+.jp-CodeCell.jp-mod-outputsScrolled .jp-Cell-outputArea::after {
+    display: none !important;
 }
 
-/* Remove extra left spacing caused by hidden prompts/collapsers */
-.jp-Cell-inputWrapper,
-.jp-Cell-outputWrapper {
-    padding-left: 0 !important;
-}
-
-.jp-Cell-inputArea,
-.jp-Cell-outputArea {
-    width: 100% !important;
-}
-</style>
-
-
-
-<style>
-/* Center figures/plots while keeping markdown and outputs visible */
+/* Center static figures and Plotly outputs */
 .jp-RenderedImage,
-.jp-RenderedSVG,
-.jp-RenderedHTMLCommon.jp-OutputArea-output {
-    text-align: center !important;
-}
-
-.jp-RenderedImage img,
-.jp-RenderedSVG svg,
+.jp-RenderedHTMLCommon .plotly-graph-div,
+.jp-OutputArea-output .plotly-graph-div,
 .jp-OutputArea-output img,
-.jp-OutputArea-output svg,
-.jp-OutputArea-output iframe,
-.js-plotly-plot,
-.plotly-graph-div {
+.jp-RenderedHTMLCommon img,
+.output_png img,
+.output_svg svg {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
-.jp-RenderedImage img,
-.jp-OutputArea-output img {
+/* Keep images responsive */
+.jp-OutputArea-output img,
+.jp-RenderedHTMLCommon img {
     max-width: 100% !important;
     height: auto !important;
 }
 
-.jp-OutputArea-output iframe[src*="cofog_drilldown_english.html"] {
+/* Center iframe-based interactive charts and remove iframe borders */
+.jp-RenderedHTMLCommon iframe,
+.jp-OutputArea-output iframe,
+iframe {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: 100% !important;
-    max-width: 1200px !important;
-    min-height: 950px !important;
+    min-height: 850px !important;
     border: none !important;
+    overflow: visible !important;
+}
+
+/* Make the chart output cell itself wide and non-scrolling */
+.jp-OutputArea-child,
+.jp-Cell-outputWrapper,
+.jp-Cell-outputArea {
+    width: 100% !important;
+    overflow: visible !important;
 }
 </style>
 
@@ -7599,9 +7590,9 @@ iframe[src*="cofog_drilldown_english.html"] {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="The-Changing-Danish-Welfare-State">The Changing Danish Welfare State<a class="anchor-link" href="#The-Changing-Danish-Welfare-State">¶</a></h1><h2 id="How-Denmark%E2%80%99s-public-spending-priorities-changed-as-the-economy-grew">How Denmark’s public spending priorities changed as the economy grew<a class="anchor-link" href="#How-Denmark%E2%80%99s-public-spending-priorities-changed-as-the-economy-grew">¶</a></h2><p>When people talk about the Danish welfare state, it is often treated as one big system. But public spending is actually split across many different areas, such as health, education, defence, social protection, public administration, and more.</p>
+<h1 id="The-Changing-Danish-Welfare-State">The Changing Danish Welfare State<a class="anchor-link" href="#The-Changing-Danish-Welfare-State">¶</a></h1><h2 id="How-Denmark%E2%80%99s-public-spending-priorities-changed-as-the-economy-grew">How Denmark’s public spending priorities changed as the economy grew<a class="anchor-link" href="#How-Denmark%E2%80%99s-public-spending-priorities-changed-as-the-economy-grew">¶</a></h2><p>When people talk about the Danish welfare state, it is often treated as one big system. But public spending is actually split across many different areas, such as health, education, defence, social protection, public administration and more.</p>
 <p>In this project, I use data from Danmarks Statistik to look at Danish public spending from 1995 to 2025. The goal is not just to see whether the state spends more money over time, but to understand whether the priorities inside the public budget have changed as the economy has grown.</p>
-<p>The story starts with the broad economic picture, then looks at how public spending is divided across COFOG categories, and finally lets the reader explore what is hidden inside each main spending area.</p>
+<p>The story starts with the broad economic picture, then looks at how public spending is divided across different categories, ending with an interactive chart.</p>
 </div>
 </div>
 </div>
@@ -7640,7 +7631,7 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
@@ -7671,7 +7662,7 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Both GDP and public spending increased a lot from 1995 to 2025, but GDP grew faster overall. Because both lines start at 100, the chart shows relative growth rather than raw money values.</p>
-<p>So the first takeaway is that Denmark became wealthier, and public spending also grew, but not at exactly the same pace. The next question is what that public money was actually spent on.</p>
+<p>Denmark became wealthier, and public spending grew, but not at exactly the same pace. The next question is what that public money was actually spent on.</p>
 </div>
 </div>
 </div>
@@ -7692,7 +7683,7 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"spending by category.png"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">))</span>
@@ -7742,7 +7733,7 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"spending change.png"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">))</span>
@@ -7792,7 +7783,7 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"sundhedsvæsen spending.png"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">))</span>
@@ -7841,12 +7832,12 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
 
-<span class="n">IFrame</span><span class="p">(</span><span class="s2">"cofog_drilldown_english.html"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">"100%"</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">"100%"</span><span class="p">)</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">"cofog_dropdown_chart.html"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">"100%"</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">"100%"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7857,9 +7848,9 @@ iframe[src*="cofog_drilldown_english.html"] {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<iframe allowfullscreen="" frameborder="0" height="950" src="cofog_drilldown_english.html" width="100%"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="850" src="cofog_dropdown_chart.html" width="100%" style="border:none; width:100%; min-height:850px; display:block; margin:0 auto;"></iframe>
 </div>
 </div>
 </div>
@@ -7899,7 +7890,7 @@ iframe[src*="cofog_drilldown_english.html"] {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Technical-details">Technical details<a class="anchor-link" href="#Technical-details">¶</a></h2><p>This website presents the main story and visualizations. The full data cleaning, methodology, code, and additional explanations are available in the explainer notebook.</p>
-<p><a href="explanation.html">View the explainer notebook</a></p>
+<p><a href="explainer.html">View the explainer notebook</a></p>
 </div>
 </div>
 </div>
